@@ -59,20 +59,41 @@ public class BufferCombinatoryTests {
 
     @Test
     public void testElement(){
+        //para a buffer, o método element funciona igual ao get
+
         //primeira combinacao
         //start = 0, end = positive, full = false, element = notnull
+        Integer size = 3;
+        CircularFifoBuffer caseOneCircularFifoBuffer = new CircularFifoBuffer(size);
+        caseOneCircularFifoBuffer.addAll(Arrays.asList(1,2));
+        assert(caseOneCircularFifoBuffer.get().equals(1));
 
         //segunda combinacao
         //start = positive, end = maxelements, full = true, element = notnull
+        size = 3;
+        CircularFifoBuffer caseTwoCircularFifoBuffer = new CircularFifoBuffer(size);
+        caseTwoCircularFifoBuffer.addAll(Arrays.asList(1,2,3));
+        assert(caseTwoCircularFifoBuffer.get().equals(1));
 
         //terceira combinacao
         //start = maxelements, end = maxelements, full = false, element = notnull
+        size = 3;
+        CircularFifoBuffer caseThreeCircularFifoQueue = new CircularFifoBuffer(size);
+        caseThreeCircularFifoQueue.addAll(Arrays.asList(1,2,3));
+        assert(caseThreeCircularFifoQueue.get().equals(1));
 
         //quarta combinacao
         //start = 0, end = 0, full = false, element = notnull
+        size = 3;
+        CircularFifoBuffer caseFourCircularFifoQueue = new CircularFifoBuffer(size);
+        caseFourCircularFifoQueue.addAll(Arrays.asList(1));
+        assert(caseFourCircularFifoQueue.get().equals(1));
 
         //quinta combinacao
         //start = 0, end = positive, full = false, element = null
+        size = 3;
+        CircularFifoBuffer caseFiveCircularFifoQueue = new CircularFifoBuffer(size);
+        assertThrows(NoSuchElementException.class, caseFiveCircularFifoQueue::get);
     }
 
     @Test

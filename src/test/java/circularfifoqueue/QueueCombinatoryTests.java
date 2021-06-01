@@ -100,20 +100,35 @@ public class QueueCombinatoryTests {
         //start = 0, end = positive, full = false, element = notnull
         Integer size = 3;
         CircularFifoQueue<Integer> caseOneCircularFifoQueue = new CircularFifoQueue<Integer>(size);
-        caseOneCircularFifoQueue.addAll(Arrays.asList(1,2,3));
-        assert()
+        caseOneCircularFifoQueue.addAll(Arrays.asList(1,2));
+        assert(caseOneCircularFifoQueue.element() == 1);
 
         //segunda combinacao
         //start = positive, end = maxelements, full = true, element = notnull
+        size = 3;
+        CircularFifoQueue<Integer> caseTwoCircularFifoQueue = new CircularFifoQueue<Integer>(size);
+        caseTwoCircularFifoQueue.addAll(Arrays.asList(1,2,3));
+        assert(caseTwoCircularFifoQueue.element() == 1);
 
         //terceira combinacao
         //start = maxelements, end = maxelements, full = false, element = notnull
+        size = 3;
+        CircularFifoQueue<Integer> caseThreeCircularFifoQueue = new CircularFifoQueue<Integer>(size);
+        caseThreeCircularFifoQueue.addAll(Arrays.asList(1,2,3));
+        assert(caseThreeCircularFifoQueue.element() == 1);
 
         //quarta combinacao
         //start = 0, end = 0, full = false, element = notnull
+        size = 3;
+        CircularFifoQueue<Integer> caseFourCircularFifoQueue = new CircularFifoQueue<Integer>(size);
+        caseFourCircularFifoQueue.addAll(Arrays.asList(1));
+        assert(caseFourCircularFifoQueue.element() == 1);
 
         //quinta combinacao
         //start = 0, end = positive, full = false, element = null
+        size = 3;
+        CircularFifoQueue<Integer> caseFiveCircularFifoQueue = new CircularFifoQueue<Integer>(size);
+        assertThrows(NoSuchElementException.class, caseFiveCircularFifoQueue::element);
     }
 
     @Test
